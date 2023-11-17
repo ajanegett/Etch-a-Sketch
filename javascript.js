@@ -1,6 +1,6 @@
 let slider = document.getElementById("myRange");
 let sliderOutput = document.querySelector(".gridVal");
-let gridDiv = document.getElementById("Grid");
+let gridDiv = document.querySelector(".Grid");
 let borderChecker = document.querySelector("#gridLines");
 
 sliderOutput.innerHTML = `${slider.value} x ${slider.value}`; // Display the default slider value
@@ -13,11 +13,11 @@ slider.oninput = function () {
 };
 
 borderChecker.oninput = function () {
-  console.log(this.checked);
   let divList = document.querySelectorAll(".gridElement");
   divList.forEach((node) => {
     node.classList.toggle("noBorder");
   });
+  gridDiv.classList.toggle("noBorder");
 };
 
 /*
@@ -47,6 +47,18 @@ function createGrid(SliderVal) {
     div.style = `width:${
       Number(getNumericStyle(gridDiv.style.width)) / SliderVal
     }px; height:${Number(getNumericStyle(gridDiv.style.height)) / SliderVal}px`;
+
+    div.addEventListener("mousedown", function (event) {
+      event.target.addEventListener(
+        "mousemove",
+        function (e) {
+          event.target.style.backgroundColor = "blue";
+        },
+        { once: true }
+      );
+      event.preventDefault();
+    });
+
     gridDiv.appendChild(div);
     i++;
   }

@@ -26,11 +26,11 @@
 }
 /* slider end */
 
-#Grid {
+.Grid {
   padding: 0;
   border: 0;
   outline: 0;
-  border: 1px solid black;
+  border: 0.1px solid black;
   display: flex;
   flex-wrap: wrap;
   flex: 0;
