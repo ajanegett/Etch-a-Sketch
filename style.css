@@ -42,3 +42,7 @@
   padding: 0;
   border: 0.1px solid black;
 }
+
+.noBorder {
+  border: none;
+}
