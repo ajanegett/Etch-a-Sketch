@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-a-Sketch</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="javascript.js" defer></script>
+</head>
+<body>
+    <header></header>
+    <div class="buttonsBar">
+        <div class="penColor">
+            <input type="color" id="colorGrab" value="#000000">
+            <p>Pen Color</p>
+        </div>
+        <div class="BgColor">
+            <input type="color" id="BgGrab" value="#FFFFFF">
+            <p>Background Color</p>
+        </div>
+        <button class="pen">Color Pen</button>
+        <button class="rainbowMode">Rainbow Mode</button>
+        <button class="eraser">Eraser</button>
+        <button class="shader">Shading</button>
+        <button class="lighten">Lighten</button>
+        <input type="range" min="1x1" max="100" value="50" class="slider" id="myRange">
+    </div>
+    <div class="Grid"></div>
+    <footer></footer>
+</body>
+</html>
