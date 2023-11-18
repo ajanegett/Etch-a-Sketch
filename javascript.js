@@ -2,6 +2,9 @@ let slider = document.getElementById("myRange");
 let sliderOutput = document.querySelector(".gridVal");
 let gridDiv = document.querySelector(".Grid");
 let borderChecker = document.querySelector("#gridLines");
+let allGridElements = document.querySelectorAll(".gridElement");
+let body = document.querySelector("body");
+let html = document.querySelector("html");
 
 sliderOutput.innerHTML = `${slider.value} x ${slider.value}`; // Display the default slider value
 createGrid(Number(slider.value));
@@ -28,6 +31,10 @@ Painting and erasing the grid
 Color methods
 */
 
+function setBgColor(event) {
+  event.target.style.backgroundColor = "blue";
+}
+
 function getNumericStyle(val) {
   let array = val.split("");
   let newArray = array.filter((x) => {
@@ -47,19 +54,39 @@ function createGrid(SliderVal) {
     div.style = `width:${
       Number(getNumericStyle(gridDiv.style.width)) / SliderVal
     }px; height:${Number(getNumericStyle(gridDiv.style.height)) / SliderVal}px`;
-
-    div.addEventListener("mousedown", function (event) {
-      event.target.addEventListener(
-        "mousemove",
-        function (e) {
-          event.target.style.backgroundColor = "blue";
-        },
-        { once: true }
-      );
-      event.preventDefault();
-    });
-
     gridDiv.appendChild(div);
     i++;
   }
+  allGridElements = document.querySelectorAll(".gridElement");
 }
+
+allGridElements.forEach(function (div) { // Add reactive divs
+  div.addEventListener("mousedown", function mdown(e) {
+    setBgColor(e);
+    allGridElements.forEach(function (minidiv) {
+      minidiv.addEventListener("mousemove", setBgColor);
+      minidiv.addEventListener("mouseup", function (e) {
+        allGridElements.forEach(function (microdiv) {
+          microdiv.removeEventListener("mousemove", setBgColor);
+        });
+      });
+    });
+  });
+});
+body.addEventListener("mouseup", function () {
+  allGridElements.forEach(function (picodiv) {
+    picodiv.removeEventListener("mousemove", setBgColor);
+  });
+});
+body.addEventListener("mousedown", function () {
+  allGridElements.forEach(function (smalldiv) {
+    smalldiv.addEventListener("mousemove", setBgColor);
+  });
+});
+
+html.addEventListener("mouseleave", function (e) {
+  allGridElements.forEach(function (picodiv) {
+    picodiv.removeEventListener("mousemove", setBgColor);
+  });
+});
+
