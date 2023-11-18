@@ -1,3 +1,23 @@
+@font-face {
+  font-family: GSansLight;
+  src: url(_fonts/GeneralSans-Light.otf);
+}
+
+@font-face {
+  font-family: GSansExtraLight;
+  src: url(_fonts/GeneralSans-Extralight.otf);
+}
+
+@font-face {
+  font-family: GSansMedium;
+  src: url(_fonts/GeneralSans-Medium.otf);
+}
+
+@font-face {
+  font-family: GSansRegular;
+  src: url(_fonts/GeneralSans-Regular.otf);
+}
+
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -14,7 +34,7 @@
 }
 .slider {
   appearance: none;
-  width: 30%;
+  width: 100%;
   height: 10px;
   background: #d3d3d3;
   outline: none;
@@ -26,13 +46,16 @@
 }
 /* slider end */
 
+body {
+  font-size: 30px;
+  font-family: GSansExtraLight, monospace;
+}
+
 .Grid {
   border: 0;
-  outline: 0;
   border: 0.1px solid black;
   display: flex;
   flex-wrap: wrap;
-  flex: 0;
 }
 
 .gridElement {
@@ -44,4 +67,38 @@
 
 .noBorder {
   border: none;
+}
+.ButtonsBar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  justify-content: center;
+}
+header {
+  text-align: center;
+  padding: 20px;
+}
+.content {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: space-between;
+}
+.parentOfGrid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+input[type="radio"]:checked ~ * {
+  color: red;
 }
