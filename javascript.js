@@ -75,7 +75,7 @@ body.addEventListener("mouseup", function () {
     picodiv.removeEventListener("mousemove", setBgColor);
   });
 });
-body.addEventListener("mousedown", function () {
+html.addEventListener("mousedown", function () {
   allGridElements.forEach(function (smalldiv) {
     smalldiv.addEventListener("mousemove", setBgColor);
   });
@@ -85,6 +85,11 @@ body.addEventListener("mouseleave", function (e) {
     picodiv.removeEventListener("mousemove", setBgColor);
   });
 });
+html.addEventListener("contextmenu", function() {
+  allGridElements.forEach(function(element) {
+    element.removeEventListener("mousemove", setBgColor)
+  })
+})
 
 // Set colors
 
@@ -92,5 +97,3 @@ function setBgColor(event) {
 
   event.target.style.backgroundColor = colorGetter.value;
 }
-
-
