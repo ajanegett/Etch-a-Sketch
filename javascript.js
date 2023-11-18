@@ -5,6 +5,7 @@ let borderChecker = document.querySelector("#gridLines");
 let allGridElements = document.querySelectorAll(".gridElement");
 let body = document.querySelector("body");
 let html = document.querySelector("html");
+let colorGetter = document.querySelector("#colorGrab")
 
 sliderOutput.innerHTML = `${slider.value} x ${slider.value}`; // Display the default slider value
 createGrid(Number(slider.value));
@@ -30,10 +31,6 @@ Make sure gridLines work
 Painting and erasing the grid
 Color methods
 */
-
-function setBgColor(event) {
-  event.target.style.backgroundColor = "blue";
-}
 
 function getNumericStyle(val) {
   let array = val.split("");
@@ -83,10 +80,17 @@ body.addEventListener("mousedown", function () {
     smalldiv.addEventListener("mousemove", setBgColor);
   });
 });
-
-html.addEventListener("mouseleave", function (e) {
+body.addEventListener("mouseleave", function (e) {
   allGridElements.forEach(function (picodiv) {
     picodiv.removeEventListener("mousemove", setBgColor);
   });
 });
+
+// Set colors
+
+function setBgColor(event) {
+
+  event.target.style.backgroundColor = colorGetter.value;
+}
+
 
