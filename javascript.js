@@ -131,17 +131,85 @@ function setGridElementColor(event) {
     event.target.style.backgroundColor = getRandomColor();
   }
   else if (penmode === "shader") {
-    
+    let rgbVal = event.target.style.backgroundColor
+    if (rgbVal == "") {
+      event.target.style.backgroundColor = "rgb(240, 240, 240)"
+    } else {
+      const arrayRgb = rgbVal.split("")
+      const myArray = arrayClear(arrayRgb)
+      let R = myArray[0]
+      let G = myArray[1]
+      let B = myArray[2]
+      if (R <20) {
+        R = 20
+      }
+      if (G < 20) {
+        G = 20
+      }
+      if (B < 20) {
+        B = 20
+      }
+      event.target.style.backgroundColor = `rgb(${R-20}, ${G-20}, ${B-20})`
+      console.log(event.target.style.backgroundColor);
+    }
   }
 
 }
 
 function setGridBgcolor() {
-  gridDiv.style.backgroundColor = bgColorGetter.value
+  gridDiv.style.backgroundColor = bgColorGetter.value;
 }
 
 function getRandomColor() {
   const rainbowColors = ["#ffbe0b", "#fb5607", "#ff006e", "#8338ec", "#3a86ff"]
   const randomColor = rainbowColors[Math.floor(Math.random() * rainbowColors.length)];
   return randomColor;
+}
+
+function arrayClear(array) { // for getting RGB numbers
+  let newArray = array.filter((x => {
+    if ( x === " " || x === "(" || x === ")") {
+      return false
+    }
+    if (!Number(x) && Number(x) !== 0 && x !== ",") {
+      return false
+    }
+
+    return true
+  }))
+  const A = []
+  const B = []
+  const C = []
+  for (x of newArray) {
+    if (x !== ",") {
+      A.push(x)
+    }
+    else {
+      for (let i = 0; i <= A.length; i++) {
+        newArray.shift()
+      }
+      break
+    }
+  }
+  for (x of newArray) {
+    if (x !== ",") {
+      B.push(x)
+    }
+    else {
+      for (let i = 0; i <= B.length; i++) {
+        newArray.shift()
+      }
+      break
+    }
+  }
+  for (x of newArray) {
+    if (x !== ",") {
+      C.push(x)
+    }
+    else {
+      break
+    }
+  }
+  console.log(A,B,C);
+  return [Number(A.join("")),Number(B.join("")),Number(C.join(""))]
 }
