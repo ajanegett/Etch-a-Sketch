@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
 @font-face {
   font-family: GSansLight;
   src: url(_fonts/GeneralSans-Light.otf);
@@ -56,7 +62,11 @@ body {
   border: 0;
   display: flex;
   flex-wrap: wrap;
-}
+  -webkit-box-shadow: 0px 0px 42px 26px rgba(158,184,217,0.81);
+  -moz-box-shadow: 0px 0px 42px 26px rgba(158,184,217,0.81);
+  box-shadow: 0px 0px 42px 26px rgba(158,184,217,0.81);
+  margin-bottom: 20px;
+  }
 
 .gridElement {
   box-sizing: border-box;
@@ -73,7 +83,13 @@ body {
 header {
   text-align: center;
   padding: 20px;
+  margin-bottom: 40px;
+  background-color: #7C93C3;
+  font-family: GSansMedium, monospace;
+  font-size: 30px;
+  margin-top: 0;
 }
+
 .content {
   display: flex;
   flex-wrap: wrap-reverse;
@@ -96,4 +112,31 @@ input[type="radio"] {
 
 input[type="radio"]:checked ~ * {
   color: red;
+}
+footer {
+  background-color: #A25772;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+  margin-top: 40px;
+  padding: 10px;
+  font-family: Nippo-Light, monospace;
+}
+
+img {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+}
+.footerDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+a {
+  width: 20px;
+  height: 20px;
+  display: block;
+  padding-right: 10px;
 }
