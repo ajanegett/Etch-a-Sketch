@@ -175,7 +175,7 @@ function setGridBgcolor() {
 }
 
 function getRandomColor() {
-  const rainbowColors = ["#ffbe0b", "#fb5607", "#ff006e", "#8338ec", "#3a86ff"];
+  const rainbowColors = ["#FF0000", "#FF7F00", "#FFFF00", "#00FF00", "#0000FF"];
   const randomColor =
     rainbowColors[Math.floor(Math.random() * rainbowColors.length)];
   return randomColor;
