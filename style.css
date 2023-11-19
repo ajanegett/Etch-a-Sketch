@@ -3,7 +3,6 @@
   padding: 0;
 }
 
-
 @font-face {
   font-family: GSansLight;
   src: url(_fonts/GeneralSans-Light.otf);
@@ -76,9 +75,14 @@ body {
 .ButtonsBar {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   padding: 10px;
   justify-content: center;
+  text-align: center;
+  font-family: GSansExtraLight, monospace;
+  margin-left: 100px;
+  margin-right: 70px;
+
 }
 header {
   text-align: center;
@@ -93,7 +97,7 @@ header {
 .content {
   display: flex;
   flex-wrap: wrap-reverse;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .parentOfGrid {
   display: flex;
@@ -112,7 +116,20 @@ input[type="radio"] {
 
 input[type="radio"]:checked ~ * {
   color: red;
+
 }
+
+.parentRadio {
+  border: 2px solid #7C93C3;
+  border-radius: 10px;
+  display: block;
+  width: 200px;
+}
+.parentRadio:hover {
+  background-color: white;
+}
+
+
 footer {
   background-color: #A25772;
   display: flex;
@@ -135,8 +152,72 @@ img {
   justify-content: center;
 }
 a {
-  width: 30px;
-  height: 30px;
   display: block;
   padding-right: 10px;
+}
+
+.penColor, .BgColor {
+  display: flex;
+  align-items: center;
+}
+
+.colorGrab {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 40px;
+  height: 40px;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  background-color: transparent;
+  margin-right: 8px;
+}
+.colorGrab::-webkit-color-swatch {
+  border-radius: 100%;
+  border: none;
+  -webkit-box-shadow: 0px 0px 20px 5px rgba(158,184,217,0.81);
+  -moz-box-shadow: 0px 0px 20px 5px rgba(158,184,217,0.81);
+  box-shadow: 0px 0px 20px 5px rgba(158,184,217,0.81);
+
+}
+.colorGrab::-moz-color-swatch {
+  border-radius: 50%;
+  border: none;
+}
+
+button {
+  color: red;
+  width: 200px;
+  height: 30px;
+  font-size: 20px;
+  -webkit-box-shadow: 0px 0px 40px 3px rgba(158,184,217,0.81);
+  -moz-box-shadow: 0px 0px 40px 3px rgba(158,184,217,0.81);
+  box-shadow: 0px 0px 40px 3px rgba(158,184,217,0.81);
+  border: 1px solid red;
+  border-radius: 20px;
+  font-family: GSansRegular, monospace;
+}
+
+button:hover {
+  background-color: #9EB8D9;
+}
+
+@media only screen and (max-width: 895px) {
+  .ButtonsBar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 18px;
+    width: 100%;
+    margin-right: 10px ;
+    margin-left: 10px ;
+  }
+  .parentRadio {
+    flex-basis: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6px;
+  }
 }

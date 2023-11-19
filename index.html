@@ -12,33 +12,33 @@
     <div class="content">
       <div class="ButtonsBar">
         <div class="penColor">
-          <input type="color" id="colorGrab" value="#000000" />
+          <input type="color" class="colorGrab" id="colorGrab" value="#000000" />
           <span>Pen Color</span>
         </div>
         <div class="BgColor">
-          <input type="color" id="BgGrab" value="#FFFFFF" />
-          <span>Background Color</span>
+          <input type="color" class="colorGrab" id="BgGrab" value="#FFFFFF" />
+          <span>BG Color</span>
         </div>
-        <div>
+        <label class="parentRadio" for="pen">
           <input name="same" type="radio" id="pen" value="pen" checked />
           <label for="pen">Pen</label>
-        </div>
-        <div>
+        </label>
+        <label class="parentRadio">
           <input name="same" type="radio" id="rainbowMode" value="rainbow" />
           <label for="rainbowMode">Rainbow Pen</label>
-        </div>
-        <div>
+        </label>
+        <label class="parentRadio">
           <input name="same" type="radio" id="eraser" value="eraser" />
           <label for="eraser">Eraser</label>
-        </div>
-        <div>
+        </label>
+        <label class="parentRadio">
           <input name="same" type="radio" id="shader" value="shader" />
           <label for="shader">Shader</label>
-        </div>
-        <div>
+        </label>
+        <label class="parentRadio">
           <input name="same" type="radio" id="lighten" value="lighter" />
           <label for="lighten">Lighter</label>
-        </div>
+        </label>
         <input
           type="range"
           min="1"
@@ -48,7 +48,7 @@
           id="myRange"
         />
         <div class="gridVal"></div>
-        <div>
+        <div class="btn">
           <button id="clear">Clear</button>
         </div>
       </div>
