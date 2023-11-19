@@ -25,6 +25,7 @@ buttonsArray.forEach(function (button) {
 
 sliderOutput.innerHTML = `${slider.value} x ${slider.value}`; // Display the default slider value
 createGrid(Number(slider.value));
+setGridBgcolor();
 
 slider.oninput = function () {
   sliderOutput.innerHTML = `${this.value} x ${this.value}`;

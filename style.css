@@ -125,9 +125,9 @@ footer {
 }
 
 img {
-  width: 20px;
-  height: 20px;
-  margin-left: 10px;
+  width: 30px;
+  height: 30px;
+  margin-left: 20px;
 }
 .footerDiv {
   display: flex;
@@ -135,8 +135,8 @@ img {
   justify-content: center;
 }
 a {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   display: block;
   padding-right: 10px;
 }
