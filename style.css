@@ -47,13 +47,13 @@
 /* slider end */
 
 body {
-  font-size: 30px;
+  font-size: 20px;
   font-family: GSansExtraLight, monospace;
+  background-color: #eef5ff;
 }
 
 .Grid {
   border: 0;
-  border: 0.1px solid black;
   display: flex;
   flex-wrap: wrap;
 }
@@ -62,11 +62,6 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  border: 0.1px solid black;
-}
-
-.noBorder {
-  border: none;
 }
 .ButtonsBar {
   display: flex;

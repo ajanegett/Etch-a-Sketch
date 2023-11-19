@@ -1,7 +1,6 @@
 let slider = document.getElementById("myRange");
 let sliderOutput = document.querySelector(".gridVal");
 let gridDiv = document.querySelector(".Grid");
-let borderChecker = document.querySelector("#gridLines");
 let allGridElements = document.querySelectorAll(".gridElement");
 let body = document.querySelector("body");
 let html = document.querySelector("html");
@@ -31,14 +30,6 @@ slider.oninput = function () {
   sliderOutput.innerHTML = `${this.value} x ${this.value}`;
   gridDiv.innerHTML = "";
   createGrid(Number(slider.value));
-};
-
-borderChecker.oninput = function () {
-  let divList = document.querySelectorAll(".gridElement");
-  divList.forEach((node) => {
-    node.classList.toggle("noBorder");
-  });
-  gridDiv.classList.toggle("noBorder");
 };
 
 bgColorGetter.oninput = function () {
@@ -170,7 +161,9 @@ function setGridElementColor(event) {
       if (B > 235) {
         B = 235;
       }
-      event.target.style.backgroundColor = `rgb(${R + 20}, ${G + 20}, ${B + 20})`;
+      event.target.style.backgroundColor = `rgb(${R + 20}, ${G + 20}, ${
+        B + 20
+      })`;
       console.log(event.target.style.backgroundColor);
     }
   }
